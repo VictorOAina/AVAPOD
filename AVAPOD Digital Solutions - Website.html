@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AVAPOD Digital Solutions — Product Strategy & Fintech Advisory</title>
+<meta name="description" content="AVAPOD connects your product, fintech or Africa market-entry challenge with experienced practitioners who can help you move forward.">
+
+<!-- Fonts: change the family names here if you ever want a different look. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   COLORS & FONTS — change values here to re-skin the whole site.
+   ============================================================ */
+:root{
+  --bg:            #f5ead8; /* page background */
+  --bg-alt:        #ebddc5; /* card background */
+  --bg-card-soft:  #fff2eb; /* selected/highlighted card background */
+  --dark:          #201e1d; /* near-black text & dark sections */
+  --cream:         #f5ead8; /* text on dark sections */
+  --accent:        #c67139; /* primary orange (buttons, links) */
+  --accent-dark:   #8c491a; /* darker orange (eyebrow labels) */
+  --highlight:     #f6a06b; /* footer heading highlight */
+  --tag-green-bg:  #f0fae1;
+  --tag-green-fg:  #3d472b;
+  --tag-peach-bg:  #fff2eb;
+
+  --text-1: rgba(32,30,29,0.78);
+  --text-2: rgba(32,30,29,0.75);
+  --text-3: rgba(32,30,29,0.72);
+  --text-4: rgba(32,30,29,0.60);
+  --text-5: rgba(32,30,29,0.55);
+  --border-soft: rgba(32,30,29,0.12);
+
+  --font-display: 'Caprasimo', system-ui, sans-serif;
+  --font-body:    'Figtree', system-ui, sans-serif;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+body{ background:var(--bg); color:var(--dark); font-family:var(--font-body); }
+a{ color:var(--accent-dark); }
+a:hover{ color:var(--accent); }
+::selection{ background:rgba(198,113,57,0.3); }
+img{ max-width:100%; display:block; }
+
+@keyframes avapod-fade{ from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+.fade-in{ animation:avapod-fade 0.5s ease; }
+
+.eyebrow{ font-size:12px; letter-spacing:0.12em; color:var(--accent-dark); font-weight:600; margin-bottom:14px; }
+.display{ font-family:var(--font-display); font-weight:400; }
+
+.section{ max-width:1240px; margin:0 auto; padding:72px 28px 96px; }
+.section-narrow{ max-width:720px; margin:0 auto; padding:72px 28px 120px; }
+
+.btn{ font-family:var(--font-display); border:none; cursor:pointer; border-radius:999px; display:inline-flex; align-items:center; justify-content:center; white-space:nowrap; }
+.btn-primary{ background:var(--accent); color:var(--cream); }
+.btn-dark{ background:var(--dark); color:var(--cream); }
+.btn-outline{ background:transparent; color:var(--dark); border:1.5px solid rgba(32,30,29,0.2); }
+
+.card{ background:var(--bg-alt); border-radius:28px; padding:26px; }
+.pill{ font-size:11.5px; background:var(--bg); color:var(--text-2); padding:5px 12px; border-radius:12px; }
+.pill-peach{ font-size:12.5px; background:var(--tag-peach-bg); color:var(--accent-dark); padding:5px 13px; border-radius:12px; }
+.pill-green{ font-size:11.5px; background:var(--tag-green-bg); color:var(--tag-green-fg); padding:5px 12px; border-radius:12px; }
+
+.grid{ display:grid; gap:20px; }
+
+.img-placeholder{
+  background:repeating-linear-gradient(45deg, var(--bg-alt), var(--bg-alt) 10px, var(--bg) 10px, var(--bg) 20px);
+  border:1px dashed var(--border-soft);
+  display:flex; align-items:center; justify-content:center; text-align:center;
+  color:var(--text-4); font-size:12px; padding:12px;
+}
+
+header{ position:sticky; top:0; z-index:50; background:rgba(245,234,216,0.92); backdrop-filter:blur(8px); border-bottom:1px solid var(--border-soft); }
+.header-inner{ max-width:1240px; margin:0 auto; padding:16px 28px; display:flex; align-items:center; gap:28px; flex-wrap:wrap; }
+.logo{ font-family:var(--font-display); font-size:20px; cursor:pointer; letter-spacing:-0.01em; }
+nav{ display:flex; gap:20px; flex-wrap:wrap; flex:1; font-size:13.5px; }
+nav span{ cursor:pointer; white-space:nowrap; }
+
+footer{ background:var(--dark); color:var(--cream); padding:64px 28px 36px; }
+.footer-inner{ max-width:1240px; margin:0 auto; }
+.footer-cols{ display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:32px; margin-bottom:44px; }
+.footer-col-title{ font-family:var(--font-display); font-size:14.5px; margin-bottom:14px; color:var(--highlight); }
+.footer-links{ display:flex; flex-direction:column; gap:9px; }
+.footer-links span{ font-size:13px; color:rgba(245,234,216,0.8); cursor:pointer; }
+.footer-bottom{ border-top:1px solid rgba(245,234,216,0.14); padding-top:24px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; }
+
+input.field{ width:100%; min-height:44px; padding:10px 16px; font-size:14px; background:var(--bg-alt); border:1px solid rgba(32,30,29,0.16); border-radius:999px; box-sizing:border-box; font-family:var(--font-body); }
+label.field-label{ display:block; font-size:12px; margin-bottom:5px; color:var(--text-1); }
+</style>
+</head>
+<body>
+
+<div id="app"></div>
+
+<script>
+/* ================================================================
+   ================================================================
+   SITE CONTENT — everything below in this block is what you edit
+   to change text, prices, people, links, images, etc.
+   Nothing below this block needs programming knowledge to change:
+   just edit the text between quotes, or add/remove list entries
+   following the same {..} pattern as the ones around it.
+   ================================================================
+   ================================================================ */
+
+// The company name shown in the header logo and footer.
+const SITE = {
+  shortName: "AVAPOD",
+  fullName: "AVAPOD DIGITAL SOLUTIONS",
+  footerTagline: "Nigeria · Africa · Global",
+};
+
+// -----------------------------------------------------------------
+// IMAGES — there are no real photos loaded yet, so every portrait
+// and article thumbnail shows a placeholder box with the person's
+// or article's name. To add a real photo:
+//   1. Put the image file next to this HTML file (e.g. in an
+//      "images" folder).
+//   2. Add a line below, e.g.:  'portrait-paul': 'images/paul.jpg',
+// The id on the left must match the "imgId" used in EXPERTS / ARTICLES
+// further down this file.
+// -----------------------------------------------------------------
+const IMAGES = {
+  'portrait-paul': 'images/paul.jpg',
+  'portrait-victor': 'images/victor.jpg',
+  'portrait-olatunde': 'images/olatunde.jpg',
+};
+
+// Top navigation bar, in order. "page" must match one of the page
+// keys used throughout this file (home, solve, services, experts,
+// council, pricing, about, contact).
+const NAV_PAGES = [
+  { label: "Home", page: "home" },
+  { label: "What We Solve", page: "solve" },
+  { label: "Services", page: "services" },
+  { label: "Experts", page: "experts" },
+  { label: "Product Council", page: "council" },
+  { label: "Pricing", page: "pricing" },
+  { label: "About", page: "about" },
+];
+
+// The 7 "problem" cards shown on the Home page and What We Solve
+// page, and offered as options in step 2 of the contact form.
+const PROBLEMS = [
+  { id: "idea", title: "I have an idea.", desc: "Validate customers, assumptions, opportunities and the proposition before investing heavily.", cta: "Validate my idea" },
+  { id: "building", title: "We're already building.", desc: "Bring structure to roadmap, requirements, prioritisation and execution.", cta: "Help us structure it" },
+  { id: "notgrowing", title: "Our product isn't growing.", desc: "Assess adoption, customer experience, positioning, monetisation and product-market fit.", cta: "Diagnose our product" },
+  { id: "fintech", title: "We're building a fintech product.", desc: "Access specialist expertise across payments, wallets, APIs, settlement and reconciliation.", cta: "Talk to a fintech expert" },
+  { id: "team", title: "Our product team isn't working.", desc: "Improve discovery, prioritisation, Agile delivery, accountability and collaboration.", cta: "Improve our product organisation" },
+  { id: "africa", title: "We're entering Africa.", desc: "Understand users, payments, market structures and operating realities.", cta: "Plan our market entry" },
+  { id: "leadership", title: "We need senior product leadership.", desc: "Access experienced product leadership without immediately hiring a full-time executive.", cta: "Explore fractional leadership" },
+];
+
+// Services page groupings.
+const SERVICE_GROUPS = [
+  { title: "Product Strategy", items: ["Product vision","Product strategy","Portfolio strategy","Roadmap design","Prioritisation","Business models","Monetisation","Pricing","OKRs"] },
+  { title: "Product Discovery", items: ["Idea validation","Customer discovery","Opportunity assessment","Problem definition","MVP definition","Product-market fit"] },
+  { title: "Fintech & Payments", items: ["Payment product strategy","Gateway advisory","Wallet products","Payment APIs","Collections","Settlement","Reconciliation"] },
+  { title: "Product Execution", items: ["Requirements","Backlogs","Product roadmaps","Delivery frameworks","Launch readiness","Cross-functional execution"] },
+  { title: "Product Organisation", items: ["Operating model","Agile transformation","Team structure","PM coaching","Product governance","Stakeholder alignment"] },
+  { title: "Product Growth", items: ["Activation","Conversion","Adoption","Retention","Monetisation","Positioning","GTM"] },
+  { title: "Africa Market Entry", items: ["Nigeria","West Africa","Product localisation","Payment ecosystems","Market discovery","Partnerships"] },
+  { title: "Fractional Leadership", items: ["Fractional PM","Fractional Product Advisor","Fractional Head of Product","AVAPOD Product Council"] },
+];
+
+// The three founding experts. imgId looks itself up in IMAGES above.
+const EXPERTS = [
+  { id: "paul", name: "Paul Anyanwu", title: "Founding Partner — Product Strategy, Fintech & Payments", imgId: "portrait-paul",
+    tags: ["Product strategy","Fintech","Payments","Payment infrastructure","API products","Go-to-market","African fintech"],
+    narrative: "Paul helps organisations determine what should be built, why it should be built, how it creates value and how complex products should work commercially and operationally.",
+    bestFit: "Fintech founders, payment companies, banks, enterprise organisations, marketplaces and SaaS companies entering or scaling in African markets.",
+    linkedin: "https://www.linkedin.com/in/paul-anyanwu-67146a44/" },
+  { id: "victor", name: "Victor Aina", title: "Founding Partner — Product Execution, Fintech Operations & Platforms", imgId: "portrait-victor",
+    tags: ["Product execution","Payments operations","Settlement","Reconciliation","APIs","Process automation","Platform operations"],
+    narrative: "Victor helps organisations turn product strategy into reliable products, scalable operations and efficient technology-driven processes.",
+    bestFit: "Fintech and payment companies, integration-heavy products, operational platforms, and businesses trying to automate manual processes.",
+    linkedin: "https://www.linkedin.com/in/ainavictor/" },
+  { id: "olatunde", name: "Olatunde Daranijo", title: "Founding Partner — Product Innovation, Agile Transformation & Enterprise Products", imgId: "portrait-olatunde",
+    tags: ["Product innovation","Digital transformation","Agile coaching","Enterprise PM","Design thinking","Cross-functional leadership"],
+    narrative: "Olatunde helps organisations create better systems for discovering, building and delivering products consistently at scale.",
+    bestFit: "Large organisations, transformation programmes, corporate innovation teams, and startups scaling their product organisation.",
+    linkedin: "https://www.linkedin.com/in/olatunde-daranijo/" },
+];
+
+// "Ideal for" tags on the Product Council page.
+const COUNCIL_IDEAL_FOR = ["Product strategy decisions","Fintech business models","Major pivots","Product architecture","Market-entry decisions","Launch readiness","Digital transformation","Monetisation strategy","Operating models","Investment due diligence"];
+
+// Pricing page cards, in order.
+const PRICING_TIERS = [
+  { name: "Expert Advisory Session", price: "₦150,000", unit: "60 minutes", desc: "Expert matching, pre-session context review, consultation and prioritised next steps.", cta: "Book an Expert" },
+  { name: "AVAPOD Product Council", price: "₦300,000", unit: "90 minutes", desc: "Advisory session with all three founders, multidisciplinary assessment and a decision memo.", cta: "Book the Product Council" },
+  { name: "Product Diagnostic", price: "From ₦750,000", unit: "Scoped engagement", desc: "Stakeholder interviews, product review, journey and analytics assessment, recommendations.", cta: "Request a Diagnostic" },
+  { name: "Product Strategy Sprint", price: "From ₦1,500,000", unit: "2–4 weeks", desc: "Opportunity, proposition, vision, MVP, roadmap, KPIs and an execution plan.", cta: "Discuss a Strategy Sprint" },
+  { name: "Fractional Product Leadership", price: "From ₦2,500,000", unit: "Per month", desc: "Ongoing strategy, roadmap ownership, team leadership and delivery oversight.", cta: "Discuss Fractional Leadership" },
+  { name: "Africa Market Entry Advisory", price: "From ₦1,000,000", unit: "Scoped engagement", desc: "Market discovery, localisation, payments, ecosystem mapping and launch strategy.", cta: "Discuss Africa Market Entry" },
+];
+
+// About page principles grid.
+const PRINCIPLES = [
+  { title: "Problem before solution", desc: "Understand before recommending." },
+  { title: "Evidence before opinion", desc: "Use data and context." },
+  { title: "Outcomes before activity", desc: "Measure value, not meetings." },
+  { title: "Clarity before complexity", desc: "Make difficult decisions understandable." },
+  { title: "Practitioners over theory", desc: "Advice grounded in real operating experience." },
+  { title: "Local context. Global standards.", desc: "Build for African markets without compromising international quality." },
+];
+
+// Contact form: step 3 support-type choices.
+const SUPPORT_OPTIONS = [
+  { id: "advisory", label: "Advisory session" }, { id: "council", label: "Product Council" }, { id: "diagnostic", label: "Diagnostic" },
+  { id: "sprint", label: "Strategy sprint" }, { id: "project", label: "Project engagement" }, { id: "fractional", label: "Fractional leadership" },
+  { id: "marketentry", label: "Market entry" }, { id: "notsure", label: "Not sure" },
+];
+// Contact form: step 4 budget choices.
+const BUDGET_OPTIONS = [
+  { id: "u500k", label: "Under ₦500k" }, { id: "500k-1m", label: "₦500k–₦1m" }, { id: "1m-2.5m", label: "₦1m–₦2.5m" },
+  { id: "2.5m-5m", label: "₦2.5m–₦5m" }, { id: "5mplus", label: "₦5m+" }, { id: "scope", label: "Help me define scope" },
+];
+
+// Footer columns and their links. "page" must match a page key above.
+const FOOTER_COLS = [
+  { title: "AVAPOD", links: [{ label: "About", page: "about" }, { label: "Experts", page: "experts" }, { label: "Product Council", page: "council" }, { label: "Pricing", page: "pricing" }] },
+  { title: "Expertise", links: [{ label: "Product Strategy", page: "services" }, { label: "Fintech & Payments", page: "services" }, { label: "Product Operations", page: "services" }, { label: "Fractional Leadership", page: "pricing" }] },
+  { title: "Resources", links: [{ label: "FAQ", page: "about" }] },
+  { title: "Connect", links: [{ label: "LinkedIn", page: "experts" }, { label: "Contact", page: "contact" }, { label: "Book a Session", page: "contact" }] },
+  { title: "Legal", links: [{ label: "Privacy", page: "about" }, { label: "Terms", page: "about" }, { label: "Cookies", page: "about" }] },
+];
+
+// Reserved for a future "Insights" page — defined here so the content
+// isn't lost, but nothing on the site currently displays these yet.
+const ARTICLES = [
+  { title: "Why product-market fit looks different in African fintech", category: "Fintech", readTime: "7 min read", imgId: "article-1" },
+  { title: "Diagnosing a product organisation that isn't shipping", category: "Product Operations", readTime: "6 min read", imgId: "article-2" },
+  { title: "What international teams get wrong about entering Nigeria", category: "Africa", readTime: "8 min read", imgId: "article-3" },
+  { title: "Fractional leadership: when it works and when it doesn't", category: "Product Leadership", readTime: "5 min read", imgId: "article-4" },
+  { title: "A practical framework for prioritising your roadmap", category: "Product Strategy", readTime: "6 min read", imgId: "article-5" },
+  { title: "Reconciliation and settlement, explained for product teams", category: "Payments", readTime: "9 min read", imgId: "article-6" },
+];
+const INSIGHT_CATEGORIES = ["Product Strategy","Fintech","Payments","Product Leadership","Product Operations","Agile","Africa","Startups","AI & Product","Digital Transformation","Growth"];
+const AFRICA_SECTIONS = [
+  { title: "Product localisation", desc: "Adapting products to real local context, not just language." },
+  { title: "Fintech and payments", desc: "Navigating gateways, wallets and settlement realities." },
+  { title: "Customer behaviour", desc: "Understanding how customers discover, trust and transact." },
+  { title: "Ecosystem mapping", desc: "Identifying the partners and infrastructure that matter." },
+  { title: "Partnership strategy", desc: "Structuring the right local and regional relationships." },
+  { title: "Product-market discovery", desc: "Testing assumptions before committing resources." },
+  { title: "Launch strategy", desc: "Sequencing entry across markets and segments." },
+  { title: "Local expert access", desc: "Practitioners with real operating experience in African markets." },
+];
+const TOOLS = [
+  { name: "Product Prioritisation Assistant", desc: "RICE, MoSCoW and Impact/Effort scoring for your roadmap." },
+  { name: "API Explainer", desc: "Translate APIs into product-friendly explanations." },
+  { name: "Product Flow Builder", desc: "Create simple user flows and sequence diagrams." },
+  { name: "Executive Review Simulator", desc: "Stress-test PRDs, proposals, strategies and launch plans." },
+  { name: "Product Health Check", desc: "Answer questions and receive an indicative product maturity score." },
+];
+
+// The wording for each page's headline/paragraph/button text.
+// "Html" fields allow a <br> line break; everything else is plain text.
+const COPY = {
+  header: { cta: "Tell Us What You're Solving" },
+
+  home: {
+    eyebrow: "PRODUCT STRATEGY · DIGITAL INNOVATION · AFRICA",
+    headlineHtml: "Build the right product.<br>With the right expertise.",
+    body: "Whether you're validating an idea, fixing a struggling product, building a fintech platform or entering an African market, AVAPOD connects your challenge with experienced professionals who can help you move forward.",
+    ctaPrimary: "Tell Us What You're Solving",
+    ctaSecondary: "Meet the Product Council",
+    footerLine: "Strategy · Fintech · Payments · Innovation · Operations · Agile · Market Entry",
+    section2: {
+      heading: "Start with the problem, not the job title.",
+      body: "You shouldn't need to understand product-management terminology before getting the right help. Tell us where you're stuck — we'll help determine what expertise you actually need.",
+      recommendedLabel: "RECOMMENDED NEXT STEP",
+      continueLabel: "Continue →",
+    },
+    section3: {
+      eyebrow: "SIGNATURE SERVICE",
+      heading: "Three experienced product leaders. One important business problem.",
+      body: "Bring AVAPOD a strategic product challenge and the Founding Product Council will examine it from multiple perspectives before recommending a way forward.",
+      buttonLabel: "Book the Product Council",
+      priceEyebrow: "BEST FOR HIGH-IMPACT DECISIONS",
+      price: "₦300,000",
+      priceUnit: "90-minute Product Council Session",
+    },
+    section4: {
+      heading: "The right answer often starts with the right perspective.",
+      body: "Tell us what you're trying to achieve, what's getting in the way and what you've tried so far. AVAPOD will help identify the right expertise and the right next move.",
+      buttonLabel: "Tell Us What You're Solving",
+    },
+  },
+
+  solve: {
+    eyebrow: "WHAT WE SOLVE",
+    heading: "Start with the problem. We'll help find the expertise.",
+    body: "A client might believe they need a Product Manager, Designer or Agile Coach — but the real problem is often something else entirely. AVAPOD diagnoses the problem before recommending the resource.",
+  },
+
+  services: {
+    eyebrow: "SERVICES",
+    heading: "Grouped by business outcome, not job title.",
+  },
+
+  council: {
+    eyebrow: "SIGNATURE SERVICE",
+    heading: "Three experienced product leaders. One important business problem.",
+    body: "Bring AVAPOD a strategic product challenge and the Founding Product Council will examine it from multiple perspectives before recommending a way forward.",
+    idealForHeading: "Ideal for",
+    priceEyebrow: "BEST FOR HIGH-IMPACT DECISIONS",
+    price: "₦300,000",
+    priceUnit: "90-minute Product Council Session",
+    buttonLabel: "Book the Product Council",
+    timeline: {
+      before: { label: "BEFORE", text: "Client submits context and relevant documentation." },
+      during: { label: "DURING", text: "Paul, Victor and Olatunde jointly challenge assumptions and explore possible solutions." },
+      after:  { label: "AFTER",  text: "Client receives an AVAPOD Decision Memo: observations, major risks, recommendations, priorities, immediate actions." },
+    },
+  },
+
+  experts: {
+    eyebrow: "FOUNDING PRODUCT COUNCIL",
+    heading: "Complementary experts, not three generic Product Managers.",
+    body: "AVAPOD brings together experienced product practitioners with complementary expertise across strategy, fintech, operations, innovation and enterprise transformation.",
+    viewProfileLabel: "View Profile",
+    backLabel: "← All experts",
+    bookLabel: "Book a Consultation",
+    linkedinLabel: "LinkedIn Profile",
+    bestFitHeading: "Best fit if…",
+  },
+
+  pricing: {
+    eyebrow: "PRICING",
+    heading: "Transparent entry pricing. Custom for larger engagements.",
+    subtext: "Pricing shown in NGN for Nigerian clients.",
+    internationalLine: "International client? Request USD pricing →",
+  },
+
+  about: {
+    eyebrow: "ABOUT",
+    heading: "Product problems rarely fit neatly into job titles.",
+    paragraphs: [
+      "Organisations often know something isn't working before they know exactly what expertise they need. A founder may believe they need a Product Manager when the real issue is customer discovery.",
+      "A company may believe it has a technology problem when the underlying issue is product strategy. A global organisation may believe localisation means changing currency when the bigger challenge is understanding how customers behave, pay and transact in a new market.",
+    ],
+    boldParagraph: "AVAPOD DIGITAL SOLUTIONS exists to close this gap. We bring experienced practitioners around the problem first and determine the expertise required second.",
+  },
+
+  contact: {
+    eyebrow: "TELL US WHAT YOU'RE SOLVING",
+    step1: { heading: "Who are you?", nameLabel: "Full name", emailLabel: "Work email", companyLabel: "Company" },
+    step2: { heading: "What are you trying to solve?" },
+    step3: { heading: "What type of support?" },
+    step4: { heading: "Budget range" },
+    backLabel: "Back",
+    continueLabel: "Continue",
+    submitLabel: "Submit",
+    submitted: {
+      heading: "We've got it.",
+      body: "An AVAPOD expert will review your challenge and determine the most appropriate next step.",
+      nameLabel: "Name",
+      challengeLabel: "Challenge",
+      supportLabel: "Support type",
+    },
+  },
+};
+
+/* ================================================================
+   ================================================================
+   SITE ENGINE — plain JavaScript that turns the content above into
+   the page. You don't need to edit anything below this line to
+   change text, prices, people or links — that's all done above.
+   ================================================================
+   ================================================================ */
+
+let state = {
+  page: "home",
+  selectedProblem: null,
+  expertDetail: null,
+  leadStep: 1,
+  leadSubmitted: false,
+  lead: { name: "", email: "", company: "", problem: null, support: null, budget: null },
+};
+
+function img(imgId, alt, style) {
+  const src = IMAGES[imgId];
+  if (src) return `<img src="${src}" alt="${alt}" style="${style};object-fit:cover;object-position:center top">`;
+  return `<div class="img-placeholder" style="${style}">${alt}</div>`;
+}
+
+function renderHeader() {
+  const navItems = NAV_PAGES.map(n => {
+    const active = state.page === n.page;
+    return `<span data-action="nav" data-page="${n.page}" style="color:${active ? "var(--accent-dark)" : "var(--dark)"};font-weight:${active ? 700 : 400}">${n.label}</span>`;
+  }).join("");
+
+  return `
+  <header>
+    <div class="header-inner">
+      <div class="logo" data-action="nav" data-page="home">${SITE.shortName}</div>
+      <nav>${navItems}</nav>
+      <button class="btn btn-primary" data-action="nav" data-page="contact" style="font-size:13px;padding:11px 22px">${COPY.header.cta}</button>
+    </div>
+  </header>`;
+}
+
+function renderHome() {
+  const c = COPY.home;
+  const problemCards = PROBLEMS.map(p => {
+    const selected = state.selectedProblem === p.id;
+    return `
+      <div class="card" data-action="select-problem" data-id="${p.id}" style="cursor:pointer;border:2px solid ${selected ? "var(--accent)" : "transparent"};background:${selected ? "var(--bg-card-soft)" : "var(--bg-alt)"};display:flex;flex-direction:column;gap:10px">
+        <div class="display" style="font-size:17px;line-height:1.25">${p.title}</div>
+        <p style="margin:0;font-size:13.5px;color:var(--text-2);flex:1">${p.desc}</p>
+        <div style="font-size:12.5px;font-weight:600;color:var(--accent-dark)">${p.cta} →</div>
+      </div>`;
+  }).join("");
+
+  const selectedProblemData = state.selectedProblem ? PROBLEMS.find(p => p.id === state.selectedProblem) : null;
+  const recommendedBlock = selectedProblemData ? `
+    <div style="margin-top:24px;background:var(--dark);color:var(--cream);border-radius:28px;padding:32px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
+      <div>
+        <div style="font-size:11px;letter-spacing:0.1em;color:var(--highlight);font-weight:600;margin-bottom:6px">${c.section2.recommendedLabel}</div>
+        <div class="display" style="font-size:20px">${selectedProblemData.cta}</div>
+      </div>
+      <button class="btn btn-primary" data-action="continue-with-problem" style="font-size:14px;padding:14px 26px">${c.section2.continueLabel}</button>
+    </div>` : "";
+
+  return `
+  <section class="section fade-in" style="padding-top:88px">
+    <div style="max-width:760px">
+      <div class="eyebrow">${c.eyebrow}</div>
+      <h1 class="display" style="font-size:clamp(38px,6vw,64px);line-height:1.08;letter-spacing:-0.015em;margin:0 0 24px">${c.headlineHtml}</h1>
+      <p style="font-size:19px;line-height:1.6;color:var(--text-1);max-width:640px;margin:0 0 32px">${c.body}</p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:28px">
+        <button class="btn btn-primary" data-action="nav" data-page="contact" style="font-size:15px;padding:16px 30px">${c.ctaPrimary}</button>
+        <button class="btn btn-outline" data-action="nav" data-page="council" style="font-size:15px;padding:16px 30px">${c.ctaSecondary}</button>
+      </div>
+      <div style="font-size:13px;color:var(--text-5)">${c.footerLine}</div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <h2 class="display" style="font-size:32px;margin:0 0 10px">${c.section2.heading}</h2>
+    <p style="font-size:16px;color:var(--text-3);max-width:620px;margin:0 0 36px">${c.section2.body}</p>
+    <div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(260px,1fr))">${problemCards}</div>
+    ${recommendedBlock}
+  </section>
+
+  <section style="background:var(--bg-alt);padding:80px 28px">
+    <div style="max-width:1240px;margin:0 auto;display:flex;gap:48px;flex-wrap:wrap;align-items:center">
+      <div style="flex:1;min-width:280px">
+        <div class="eyebrow">${c.section3.eyebrow}</div>
+        <h2 class="display" style="font-size:30px;margin:0 0 14px">${c.section3.heading}</h2>
+        <p style="font-size:15.5px;color:var(--text-2);max-width:520px;margin:0 0 22px">${c.section3.body}</p>
+        <button class="btn btn-dark" data-action="nav" data-page="council" style="font-size:14px;padding:15px 28px">${c.section3.buttonLabel}</button>
+      </div>
+      <div style="background:var(--bg);border-radius:28px;padding:32px;min-width:240px;box-shadow:0 12px 32px rgba(46,43,37,0.14)">
+        <div style="font-size:12px;color:var(--accent-dark);font-weight:600;margin-bottom:8px">${c.section3.priceEyebrow}</div>
+        <div class="display" style="font-size:34px;margin-bottom:4px">${c.section3.price}</div>
+        <div style="font-size:13px;color:var(--text-4)">${c.section3.priceUnit}</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="text-align:center">
+    <h2 class="display" style="font-size:34px;max-width:720px;margin:0 auto 20px;line-height:1.2">${c.section4.heading}</h2>
+    <p style="font-size:16px;color:var(--text-3);max-width:560px;margin:0 auto 28px">${c.section4.body}</p>
+    <button class="btn btn-primary" data-action="nav" data-page="contact" style="font-size:15px;padding:16px 30px">${c.section4.buttonLabel}</button>
+  </section>`;
+}
+
+function renderSolve() {
+  const c = COPY.solve;
+  const cards = PROBLEMS.map(p => `
+    <div class="card" style="display:flex;flex-direction:column;gap:14px;padding:30px">
+      <div class="display" style="font-size:19px">${p.title}</div>
+      <p style="margin:0;font-size:14px;color:var(--text-2);flex:1">${p.desc}</p>
+      <button class="btn btn-dark" data-action="select-problem-and-go" data-id="${p.id}" style="align-self:flex-start;font-size:13px;padding:12px 22px">${p.cta}</button>
+    </div>`).join("");
+
+  return `
+  <section class="section fade-in">
+    <div class="eyebrow">${c.eyebrow}</div>
+    <h1 class="display" style="font-size:clamp(32px,5vw,46px);margin:0 0 20px;max-width:680px">${c.heading}</h1>
+    <p style="font-size:16.5px;color:var(--text-1);max-width:640px;margin:0 0 44px">${c.body}</p>
+    <div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(300px,1fr))">${cards}</div>
+  </section>`;
+}
+
+function renderServices() {
+  const c = COPY.services;
+  const groups = SERVICE_GROUPS.map(g => `
+    <div class="card" style="padding:28px">
+      <div class="display" style="font-size:18px;margin-bottom:14px">${g.title}</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">${g.items.map(it => `<span class="pill">${it}</span>`).join("")}</div>
+    </div>`).join("");
+
+  return `
+  <section class="section fade-in">
+    <div class="eyebrow">${c.eyebrow}</div>
+    <h1 class="display" style="font-size:clamp(32px,5vw,46px);margin:0 0 44px;max-width:680px">${c.heading}</h1>
+    <div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(280px,1fr))">${groups}</div>
+  </section>`;
+}
+
+function renderCouncil() {
+  const c = COPY.council;
+  const idealTags = COUNCIL_IDEAL_FOR.map(it => `<span class="pill-peach">${it}</span>`).join("");
+  const t = c.timeline;
+  const timelineCard = (item) => `
+    <div style="background:var(--bg);border:1.5px solid var(--border-soft);border-radius:24px;padding:24px">
+      <div style="font-size:11px;letter-spacing:0.1em;color:var(--accent-dark);font-weight:600;margin-bottom:8px">${item.label}</div>
+      <p style="margin:0;font-size:14.5px;color:var(--text-1)">${item.text}</p>
+    </div>`;
+
+  return `
+  <section class="section fade-in" style="padding-bottom:40px">
+    <div class="eyebrow">${c.eyebrow}</div>
+    <h1 class="display" style="font-size:clamp(32px,5vw,48px);margin:0 0 20px;max-width:680px">${c.heading}</h1>
+    <p style="font-size:17px;color:var(--text-1);max-width:640px;margin:0 0 40px">${c.body}</p>
+    <div style="display:flex;flex-wrap:wrap;gap:44px;margin-bottom:56px">
+      <div style="flex:1;min-width:280px">
+        <div class="display" style="font-size:18px;margin-bottom:14px">${c.idealForHeading}</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">${idealTags}</div>
+      </div>
+      <div class="card" style="min-width:240px;padding:30px">
+        <div style="font-size:12px;color:var(--accent-dark);font-weight:600;margin-bottom:8px">${c.priceEyebrow}</div>
+        <div class="display" style="font-size:36px;margin-bottom:4px">${c.price}</div>
+        <div style="font-size:13px;color:var(--text-4);margin-bottom:18px">${c.priceUnit}</div>
+        <button class="btn btn-primary" data-action="nav" data-page="contact" style="width:100%;font-size:14px;padding:15px 0">${c.buttonLabel}</button>
+      </div>
+    </div>
+    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
+      ${timelineCard(t.before)}
+      ${timelineCard(t.during)}
+      ${timelineCard(t.after)}
+    </div>
+  </section>`;
+}
+
+function renderExperts() {
+  const c = COPY.experts;
+  const detail = state.expertDetail ? EXPERTS.find(e => e.id === state.expertDetail) : null;
+
+  if (detail) {
+    return `
+    <section class="section fade-in">
+      <div data-action="back-to-experts" style="cursor:pointer;font-size:13px;color:var(--accent-dark);font-weight:600;margin-bottom:28px">${c.backLabel}</div>
+      <div style="display:flex;gap:44px;flex-wrap:wrap;margin-bottom:48px">
+        ${img(detail.imgId, detail.name + " — editorial portrait", "width:220px;height:260px;flex:none;border-radius:28px")}
+        <div style="flex:1;min-width:280px">
+          <h1 class="display" style="font-size:36px;margin:0 0 8px">${detail.name}</h1>
+          <div style="font-size:15px;color:var(--accent-dark);margin-bottom:18px">${detail.title}</div>
+          <p style="font-size:15.5px;color:var(--text-1);max-width:560px;margin:0 0 20px">${detail.narrative}</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px">${detail.tags.map(t => `<span class="pill-green">${t}</span>`).join("")}</div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap">
+            <button class="btn btn-dark" data-action="nav" data-page="contact" style="font-size:13.5px;padding:13px 24px">${c.bookLabel}</button>
+            <a href="${detail.linkedin}" target="_blank" rel="noopener" class="btn btn-outline" style="font-size:13.5px;padding:13px 24px;text-decoration:none">${c.linkedinLabel}</a>
+          </div>
+        </div>
+      </div>
+      <div style="background:var(--bg-alt);border-radius:24px;padding:26px 30px">
+        <div class="display" style="font-size:16px;margin-bottom:6px">${c.bestFitHeading}</div>
+        <p style="margin:0;font-size:14.5px;color:var(--text-1)">${detail.bestFit}</p>
+      </div>
+    </section>`;
+  }
+
+  const cards = EXPERTS.map(e => `
+    <div class="card" style="display:flex;flex-direction:column;gap:14px">
+      ${img(e.imgId, e.name + " portrait", "width:100%;height:200px;border-radius:20px")}
+      <div>
+        <div class="display" style="font-size:18px">${e.name}</div>
+        <div style="font-size:12.5px;color:var(--accent-dark);margin-top:4px">${e.title}</div>
+      </div>
+      <button class="btn btn-dark" data-action="view-expert" data-id="${e.id}" style="align-self:flex-start;font-size:13px;padding:11px 20px">${c.viewProfileLabel}</button>
+    </div>`).join("");
+
+  return `
+  <section class="section fade-in">
+    <div class="eyebrow">${c.eyebrow}</div>
+    <h1 class="display" style="font-size:clamp(32px,5vw,46px);margin:0 0 20px;max-width:680px">${c.heading}</h1>
+    <p style="font-size:16.5px;color:var(--text-1);max-width:640px;margin:0 0 44px">${c.body}</p>
+    <div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(280px,1fr))">${cards}</div>
+  </section>`;
+}
+
+function renderPricing() {
+  const c = COPY.pricing;
+  const cards = PRICING_TIERS.map(t => `
+    <div class="card" style="display:flex;flex-direction:column;gap:12px">
+      <div class="display" style="font-size:17px">${t.name}</div>
+      <div class="display" style="font-size:26px">${t.price}</div>
+      <div style="font-size:12.5px;color:var(--text-4)">${t.unit}</div>
+      <p style="margin:0;font-size:13px;color:var(--text-2);flex:1">${t.desc}</p>
+      <button class="btn btn-dark" data-action="nav" data-page="contact" style="align-self:flex-start;font-size:12.5px;padding:11px 20px">${t.cta}</button>
+    </div>`).join("");
+
+  return `
+  <section class="section fade-in">
+    <div class="eyebrow">${c.eyebrow}</div>
+    <h1 class="display" style="font-size:clamp(32px,5vw,46px);margin:0 0 14px;max-width:680px">${c.heading}</h1>
+    <p style="font-size:15px;color:var(--text-3);margin:0 0 8px">${c.subtext}</p>
+    <div data-action="nav" data-page="contact" style="font-size:13.5px;color:var(--accent-dark);font-weight:600;cursor:pointer;margin-bottom:44px">${c.internationalLine}</div>
+    <div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(280px,1fr))">${cards}</div>
+  </section>`;
+}
+
+function renderAbout() {
+  const c = COPY.about;
+  const principleCards = PRINCIPLES.map(pr => `
+    <div style="background:var(--bg-alt);border-radius:22px;padding:24px">
+      <div class="display" style="font-size:16px;margin-bottom:8px">${pr.title}</div>
+      <p style="margin:0;font-size:13.5px;color:var(--text-3)">${pr.desc}</p>
+    </div>`).join("");
+
+  return `
+  <section class="section fade-in">
+    <div class="eyebrow">${c.eyebrow}</div>
+    <h1 class="display" style="font-size:clamp(32px,5vw,46px);margin:0 0 28px;max-width:680px">${c.heading}</h1>
+    <div style="max-width:680px;font-size:16.5px;color:var(--text-1);display:flex;flex-direction:column;gap:16px;margin-bottom:64px">
+      ${c.paragraphs.map(p => `<p style="margin:0">${p}</p>`).join("")}
+      <p style="margin:0;font-weight:600;color:var(--dark)">${c.boldParagraph}</p>
+    </div>
+    <div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px">${principleCards}</div>
+  </section>`;
+}
+
+function renderContact() {
+  const c = COPY.contact;
+
+  if (state.leadSubmitted) {
+    const problemLabel = state.lead.problem ? (PROBLEMS.find(p => p.id === state.lead.problem) || {}).title || "Not specified" : "Not specified";
+    const supportLabel = state.lead.support ? (SUPPORT_OPTIONS.find(o => o.id === state.lead.support) || {}).label || "Not specified" : "Not specified";
+    return `
+    <section class="section-narrow fade-in">
+      <div style="text-align:center;padding:40px 0">
+        <h2 class="display" style="font-size:32px;margin:0 0 16px">${c.submitted.heading}</h2>
+        <p style="font-size:16px;color:var(--text-1);max-width:460px;margin:0 auto 32px">${c.submitted.body}</p>
+        <div style="background:var(--bg-alt);border-radius:20px;padding:24px;text-align:left;max-width:400px;margin:0 auto">
+          <div style="font-size:12px;color:var(--text-5);margin-bottom:4px">${c.submitted.nameLabel}</div>
+          <div style="font-size:14.5px;margin-bottom:12px">${state.lead.name}</div>
+          <div style="font-size:12px;color:var(--text-5);margin-bottom:4px">${c.submitted.challengeLabel}</div>
+          <div style="font-size:14.5px;margin-bottom:12px">${problemLabel}</div>
+          <div style="font-size:12px;color:var(--text-5);margin-bottom:4px">${c.submitted.supportLabel}</div>
+          <div style="font-size:14.5px">${supportLabel}</div>
+        </div>
+      </div>
+    </section>`;
+  }
+
+  const dots = [1, 2, 3, 4].map(n => `<div style="height:5px;flex:1;border-radius:3px;background:${n <= state.leadStep ? "var(--accent)" : "rgba(32,30,29,0.14)"}"></div>`).join("");
+
+  let stepHtml = "";
+  if (state.leadStep === 1) {
+    stepHtml = `
+      <h2 class="display" style="font-size:26px;margin:0 0 24px">${c.step1.heading}</h2>
+      <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:32px">
+        <div><label class="field-label">${c.step1.nameLabel}</label><input class="field" data-field="name" value="${state.lead.name}"></div>
+        <div><label class="field-label">${c.step1.emailLabel}</label><input class="field" data-field="email" value="${state.lead.email}"></div>
+        <div><label class="field-label">${c.step1.companyLabel}</label><input class="field" data-field="company" value="${state.lead.company}"></div>
+      </div>`;
+  } else if (state.leadStep === 2) {
+    const options = PROBLEMS.map(p => {
+      const picked = state.lead.problem === p.id;
+      return `<div data-action="pick-problem" data-id="${p.id}" style="cursor:pointer;padding:16px 20px;border-radius:16px;background:${picked ? "var(--bg-card-soft)" : "var(--bg-alt)"};border:2px solid ${picked ? "var(--accent)" : "transparent"};font-size:14.5px">${p.title}</div>`;
+    }).join("");
+    stepHtml = `
+      <h2 class="display" style="font-size:26px;margin:0 0 24px">${c.step2.heading}</h2>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:32px">${options}</div>`;
+  } else if (state.leadStep === 3) {
+    const options = SUPPORT_OPTIONS.map(o => {
+      const picked = state.lead.support === o.id;
+      return `<div data-action="pick-support" data-id="${o.id}" style="cursor:pointer;padding:12px 20px;border-radius:999px;background:${picked ? "var(--bg-card-soft)" : "var(--bg-alt)"};border:2px solid ${picked ? "var(--accent)" : "transparent"};font-size:13.5px">${o.label}</div>`;
+    }).join("");
+    stepHtml = `
+      <h2 class="display" style="font-size:26px;margin:0 0 24px">${c.step3.heading}</h2>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:32px">${options}</div>`;
+  } else if (state.leadStep === 4) {
+    const options = BUDGET_OPTIONS.map(o => {
+      const picked = state.lead.budget === o.id;
+      return `<div data-action="pick-budget" data-id="${o.id}" style="cursor:pointer;padding:12px 20px;border-radius:999px;background:${picked ? "var(--bg-card-soft)" : "var(--bg-alt)"};border:2px solid ${picked ? "var(--accent)" : "transparent"};font-size:13.5px">${o.label}</div>`;
+    }).join("");
+    stepHtml = `
+      <h2 class="display" style="font-size:26px;margin:0 0 24px">${c.step4.heading}</h2>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:32px">${options}</div>`;
+  }
+
+  const backStyle = state.leadStep === 1
+    ? "visibility:hidden;background:transparent;border:none;padding:14px 28px"
+    : "background:transparent;color:var(--dark);font-family:var(--font-display);font-size:14px;padding:14px 28px;border-radius:999px;border:1.5px solid rgba(32,30,29,0.2);cursor:pointer";
+  const nextLabel = state.leadStep === 4 ? c.submitLabel : c.continueLabel;
+
+  return `
+  <section class="section-narrow fade-in">
+    <div class="eyebrow">${c.eyebrow}</div>
+    <div style="display:flex;gap:6px;margin-bottom:36px">${dots}</div>
+    ${stepHtml}
+    <div style="display:flex;justify-content:space-between">
+      <button data-action="prev-step" style="${backStyle}">${c.backLabel}</button>
+      <button class="btn btn-primary" data-action="next-step" style="font-size:14px;padding:14px 28px">${nextLabel}</button>
+    </div>
+  </section>`;
+}
+
+const PAGE_RENDERERS = {
+  home: renderHome, solve: renderSolve, services: renderServices,
+  council: renderCouncil, experts: renderExperts, pricing: renderPricing,
+  about: renderAbout, contact: renderContact,
+};
+
+function renderFooter() {
+  const cols = FOOTER_COLS.map(col => `
+    <div>
+      <div class="footer-col-title">${col.title}</div>
+      <div class="footer-links">${col.links.map(l => `<span data-action="nav" data-page="${l.page}">${l.label}</span>`).join("")}</div>
+    </div>`).join("");
+
+  return `
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-cols">${cols}</div>
+      <div class="footer-bottom">
+        <div class="display" style="font-size:14px">${SITE.fullName}</div>
+        <div style="font-size:12.5px;color:rgba(245,234,216,0.55)">${SITE.footerTagline}</div>
+      </div>
+    </div>
+  </footer>`;
+}
+
+function render() {
+  const app = document.getElementById("app");
+  const pageFn = PAGE_RENDERERS[state.page] || renderHome;
+  app.innerHTML = `
+    ${renderHeader()}
+    <main style="flex:1">${pageFn()}</main>
+    ${renderFooter()}
+  `;
+}
+
+function goTo(page) {
+  state.page = page;
+  state.expertDetail = null;
+  render();
+  window.scrollTo(0, 0);
+  history.replaceState(null, "", "#" + page);
+}
+
+document.getElementById("app").addEventListener("click", function (e) {
+  const el = e.target.closest("[data-action]");
+  if (!el) return;
+  const action = el.dataset.action;
+  const id = el.dataset.id;
+
+  if (action === "nav") { goTo(el.dataset.page); return; }
+
+  if (action === "select-problem") {
+    state.selectedProblem = state.selectedProblem === id ? null : id;
+    render();
+    return;
+  }
+
+  if (action === "select-problem-and-go") {
+    state.lead.problem = id;
+    goTo("contact");
+    return;
+  }
+
+  if (action === "continue-with-problem") {
+    state.lead.problem = state.selectedProblem;
+    goTo("contact");
+    return;
+  }
+
+  if (action === "view-expert") { state.expertDetail = id; render(); window.scrollTo(0, 0); return; }
+  if (action === "back-to-experts") { state.expertDetail = null; render(); return; }
+
+  if (action === "pick-problem") { state.lead.problem = id; render(); return; }
+  if (action === "pick-support") { state.lead.support = id; render(); return; }
+  if (action === "pick-budget") { state.lead.budget = id; render(); return; }
+
+  if (action === "prev-step") {
+    state.leadStep = Math.max(1, state.leadStep - 1);
+    render();
+    return;
+  }
+
+  if (action === "next-step") {
+    if (state.leadStep >= 4) {
+      state.leadSubmitted = true;
+      render();
+      window.scrollTo(0, 0);
+    } else {
+      state.leadStep += 1;
+      render();
+    }
+    return;
+  }
+});
+
+document.getElementById("app").addEventListener("input", function (e) {
+  const field = e.target.dataset.field;
+  if (!field) return;
+  state.lead[field] = e.target.value;
+  // No re-render here: re-rendering on every keystroke would rebuild
+  // the input and lose cursor position/focus.
+});
+
+// Load the page named in the URL (e.g. #pricing) if there is one,
+// so links to a specific page work and the browser back/forward
+// buttons behave sensibly.
+const initialPage = (location.hash || "").replace("#", "");
+if (PAGE_RENDERERS[initialPage]) state.page = initialPage;
+window.addEventListener("hashchange", function () {
+  const p = (location.hash || "").replace("#", "");
+  if (PAGE_RENDERERS[p] && p !== state.page) { state.page = p; state.expertDetail = null; render(); }
+});
+
+render();
+</script>
+
+<style>
+  /* Make the app fill the viewport height like a normal page layout. */
+  #app{ min-height:100vh; display:flex; flex-direction:column; }
+  #app > main{ flex:1; }
+</style>
+</body>
+</html>

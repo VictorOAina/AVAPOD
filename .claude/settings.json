@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(node test_site.js \"C:\\\\Users\\\\USER\\\\Documents\\\\Work\\\\Products\\\\AVAPOD\\\\AVAPOD Digital Solutions - Website \\(editable\\).html\")"
+      "Bash(node test_site.js \"C:\\\\Users\\\\USER\\\\Documents\\\\Work\\\\Products\\\\AVAPOD\\\\AVAPOD Digital Solutions - Website \\(editable\\).html\")",
+      "Bash(node test_site.js \"c:\\\\Users\\\\USER\\\\Documents\\\\Work\\\\Products\\\\AVAPOD\\\\index.html\")"
     ]
   }
 }

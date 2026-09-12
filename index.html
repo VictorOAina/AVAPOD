@@ -20,7 +20,7 @@
   --bg-alt:        #f7f5f2; /* card background */
   --bg-card-soft:  #fff2eb; /* selected/highlighted card background */
   --dark:          #201e1d; /* near-black text & dark sections */
-  --cream:         #f5ead8; /* text on dark sections */
+  --cream:         #ffffff; /* text on dark sections */
   --accent:        #c67139; /* primary orange (buttons, links) */
   --accent-dark:   #8c491a; /* darker orange (eyebrow labels) */
   --highlight:     #f6a06b; /* footer heading highlight */
@@ -68,7 +68,7 @@ img{ max-width:100%; display:block; }
 .grid{ display:grid; gap:20px; }
 
 .img-placeholder{
-  background:repeating-linear-gradient(45deg, var(--bg-alt), var(--bg-alt) 10px, var(--bg) 10px, var(--bg) 20px);
+  background:repeating-linear-gradient(45deg, #ece7df, #ece7df 10px, #f7f5f2 10px, #f7f5f2 20px);
   border:1px dashed var(--border-soft);
   display:flex; align-items:center; justify-content:center; text-align:center;
   color:var(--text-4); font-size:12px; padding:12px;
@@ -85,8 +85,8 @@ footer{ background:var(--dark); color:var(--cream); padding:64px 28px 36px; }
 .footer-cols{ display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:32px; margin-bottom:44px; }
 .footer-col-title{ font-family:var(--font-display); font-size:14.5px; margin-bottom:14px; color:var(--highlight); }
 .footer-links{ display:flex; flex-direction:column; gap:9px; }
-.footer-links span{ font-size:13px; color:rgba(245,234,216,0.8); cursor:pointer; }
-.footer-bottom{ border-top:1px solid rgba(245,234,216,0.14); padding-top:24px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; }
+.footer-links span{ font-size:13px; color:rgba(255,255,255,0.8); cursor:pointer; }
+.footer-bottom{ border-top:1px solid rgba(255,255,255,0.14); padding-top:24px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; }
 
 input.field{ width:100%; min-height:44px; padding:10px 16px; font-size:14px; background:var(--bg-alt); border:1px solid rgba(32,30,29,0.16); border-radius:999px; box-sizing:border-box; font-family:var(--font-body); }
 label.field-label{ display:block; font-size:12px; margin-bottom:5px; color:var(--text-1); }
@@ -725,7 +725,7 @@ function renderFooter() {
       <div class="footer-cols">${cols}</div>
       <div class="footer-bottom">
         <div class="display" style="font-size:14px">${SITE.fullName}</div>
-        <div style="font-size:12.5px;color:rgba(245,234,216,0.55)">${SITE.footerTagline}</div>
+        <div style="font-size:12.5px;color:rgba(255,255,255,0.55)">${SITE.footerTagline}</div>
       </div>
     </div>
   </footer>`;
